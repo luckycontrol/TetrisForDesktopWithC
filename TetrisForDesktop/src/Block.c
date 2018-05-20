@@ -8,47 +8,47 @@
 #define BLOCK_EXAMPLES_SIZE 6
 
 const static Point blockExamples[BLOCK_EXAMPLES_SIZE][POSITIONS_SIZE][POSITIONS_SIZE] = {
-	//§±§±§±§±
+	//„Åë„Åë„Åë„Åë
 	{
 		{ { 0, 5 }, { 0, 6 }, { 0, 7 }, { 0, 8 } },
 		{ { -2, 6 }, { -1, 6 }, { 0, 6 }, { 1, 6 } },
 		{ { 0, 5 }, { 0, 6 }, { 0, 7 }, { 0, 8 } },
 		{ { -2, 6 }, { -1, 6 }, { 0, 6 }, { 1, 6 } }
 	},
-	//    §±
-	//§±§±§±
+	//    „Åë
+	//„Åë„Åë„Åë
 	{
 		{ { 0, 8 }, { 1, 6 }, { 1, 7 }, { 1, 8 } },
 		{ { -1, 7 }, { 0, 7 }, { 1, 7 }, { 1, 8 } },
 		{ { 0, 6 }, { 0, 7 }, { 0, 8 }, { 1, 6 } },
 		{ { -1, 6 }, { -1, 7 }, { 0, 7 }, { 1, 7 } }
 	},
-	//  §±§±
-	//§±§±
+	//  „Åë„Åë
+	//„Åë„Åë
 	{
 		{ { 0, 7 }, { 0, 8 }, { 1, 6 }, { 1, 7 } },
 		{ { -1, 6 }, { 0, 6 }, { 0, 7 }, { 1, 7 } },
 		{ { 0, 7 }, { 0, 8 }, { 1, 6 }, { 1, 7 } },
 		{ { -1, 6 }, { 0, 6 }, { 0, 7 }, { 1, 7 } }
 	},
-	//§±§±
-	//  §±§±
+	//„Åë„Åë
+	//  „Åë„Åë
 	{
 		{ { 0, 6 }, { 0, 7 }, { 1, 7 }, { 1, 8 } },
 		{ { -1, 8 }, { 0, 8 }, { 0, 7 }, { 1, 7 } },
 		{ { 0, 6 }, { 0, 7 }, { 1, 7 }, { 1, 8 } },
 		{ { -1, 8 }, { 0, 8 }, { 0, 7 }, { 1, 7 } }
 	},
-	//§±
-	//§±§±§±
+	//„Åë
+	//„Åë„Åë„Åë
 	{
 		{ { 0, 6 }, { 1, 6 }, { 1, 7 }, { 1, 8 } },
 		{ { -1, 8 }, { -1, 7 }, { 0, 7 }, { 1, 7 } },
 		{ { 0, 6 }, { 0, 7 }, { 0, 8 }, { 1, 8 } },
 		{ { -1, 7 }, { 0, 7 }, { 1, 7 }, { 1, 6 } }
 	},
-	//§±§±
-	//§±§±
+	//„Åë„Åë
+	//„Åë„Åë
 	{
 		{ { 0, 6 }, { 0, 7 }, { 1, 6 }, { 1, 7 } },
 		{ { 0, 6 }, { 0, 7 }, { 1, 6 }, { 1, 7 } },
@@ -108,34 +108,34 @@ void Block_PrintNext(Block block, int x, int y){
 	CursorUtil_GotoXY(x, y++);
 	switch (block.next){
 	case 0:
-		printf("°·°·°·°·");
+		printf("ÔºùÔºùÔºùÔºù");
 		CursorUtil_GotoXY(x, y++);
 		printf("        ");
 		break;
 	case 1:
-		printf("      °·");
+		printf("      Ôºù");
 		CursorUtil_GotoXY(x, y++);
-		printf("  °·°·°·");
+		printf("  ÔºùÔºùÔºù");
 		break;
 	case 2:
-		printf("    °·°·");
+		printf("    ÔºùÔºù");
 		CursorUtil_GotoXY(x, y++);
-		printf("  °·°·  ");
+		printf("  ÔºùÔºù  ");
 		break;
 	case 3:
-		printf("  °·°·  ");
+		printf("  ÔºùÔºù  ");
 		CursorUtil_GotoXY(x, y++);
-		printf("    °·°·");
+		printf("    ÔºùÔºù");
 		break;
 	case 4:
-		printf("°·      ");
+		printf("Ôºù      ");
 		CursorUtil_GotoXY(x, y++);
-		printf("°·°·°·  ");
+		printf("ÔºùÔºùÔºù  ");
 		break;
 	case 5:
-		printf("  °·°·  ");
+		printf("  ÔºùÔºù  ");
 		CursorUtil_GotoXY(x, y++);
-		printf("  °·°·  ");
+		printf("  ÔºùÔºù  ");
 		break;
 	}
 }
@@ -145,7 +145,7 @@ static Block _Block_MoveToDown(Block block){
 	int j;
 	for (i = 0; i < POSITIONS_SIZE; i++){
 		for (j = 0; j < POSITIONS_SIZE; j++){
-			block.positions[i][j].x++;
+			block.positions[i][j].y++;
 		}
 	}
 	return block;
@@ -156,7 +156,7 @@ static Block _Block_MoveToLeft(Block block){
 	int j;
 	for (i = 0; i < POSITIONS_SIZE; i++){
 		for (j = 0; j < POSITIONS_SIZE; j++){
-			block.positions[i][j].y--;
+			block.positions[i][j].x--;
 		}
 	}
 	return block;
@@ -167,7 +167,7 @@ static Block _Block_MoveToRight(Block block){
 	int j;
 	for (i = 0; i < POSITIONS_SIZE; i++){
 		for (j = 0; j < POSITIONS_SIZE; j++){
-			block.positions[i][j].y++;
+			block.positions[i][j].x++;
 		}
 	}
 	return block;
